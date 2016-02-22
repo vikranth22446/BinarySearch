@@ -15,6 +15,8 @@ public class StandardDeviation extends JFrame {
    * Find: The standard deviation of these numbers.
    */
   private static double STANDARD_DEVIATION;
+
+
   JButton popularButton, standardButton;
   private static Deviation DEVIATION_STATE;
 
@@ -23,6 +25,10 @@ public class StandardDeviation extends JFrame {
     standardDeviation.createFrameToCalculateStandardDeviation();
   }
 
+  /**
+   * Creates a Gui which allows the user to select which of type of deviation
+   * the user wants.
+   */
   public void createFrameToCalculateStandardDeviation() {
     setTitle("Choose Which Type Of Deviation");
     setLayout(new FlowLayout());
@@ -48,6 +54,9 @@ public class StandardDeviation extends JFrame {
     setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
   }
 
+  /**
+   * Different types of deviation
+   */
   enum Deviation {
     POPULAR(1), STANDARD(0);
     private final int value;
