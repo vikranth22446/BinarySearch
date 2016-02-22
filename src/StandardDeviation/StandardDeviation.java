@@ -1,9 +1,12 @@
 package src.standarddeviation;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  * This program finds the standard deviation of an array.
  */
-public class StandardDeviation {
+public class StandardDeviation extends JFrame {
   /**
    * Given: A series of numbers: 0, 3, 5, 7, 2, 6, 1, 9, 12, 37, 42
    */
@@ -12,11 +15,46 @@ public class StandardDeviation {
    * Find: The standard deviation of these numbers.
    */
   private static double STANDARD_DEVIATION;
+  JButton popularButton, standardButton;
+  private static Deviation DEVIATION_STATE;
 
   public static void main(String[] args) {
     StandardDeviation standardDeviation = new StandardDeviation();
-    STANDARD_DEVIATION = standardDeviation.findStandardDeviation(GIVEN_SET_OF_NUMS);
-    System.out.println(STANDARD_DEVIATION);
+    standardDeviation.createFrameToCalculateStandardDeviation();
+  }
+
+  public void createFrameToCalculateStandardDeviation() {
+    setTitle("Choose Which Type Of Deviation");
+    setLayout(new FlowLayout());
+    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    popularButton = new JButton();
+    popularButton.setText("Popular Deviation");
+    popularButton.addActionListener(e -> {
+      DEVIATION_STATE = Deviation.POPULAR;
+      STANDARD_DEVIATION = findStandardDeviation(GIVEN_SET_OF_NUMS);
+      System.out.println(STANDARD_DEVIATION);
+    });
+    getContentPane().add(popularButton);
+    standardButton = new JButton();
+    standardButton.setText("Standard Deviation");
+    standardButton.addActionListener(e -> {
+      DEVIATION_STATE = Deviation.STANDARD;
+      STANDARD_DEVIATION = findStandardDeviation(GIVEN_SET_OF_NUMS);
+      System.out.println(STANDARD_DEVIATION);
+    });
+    getContentPane().add(standardButton);
+    setSize(100, 100);
+    setVisible(true);
+    setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+  }
+
+  enum Deviation {
+    POPULAR(1), STANDARD(0);
+    private final int value;
+
+    Deviation(int i) {
+      value = i;
+    }
   }
 
   /**
@@ -29,12 +67,10 @@ public class StandardDeviation {
    * @return The Standard Deviation of the numbers.
    */
   public double findStandardDeviation(double[] setOfNumbers) {
-    double mean = findMean(setOfNumbers), sumOfSquearesOfDeviation = 0;
-    for (int indexOfNumbers = 0; indexOfNumbers < setOfNumbers.length; indexOfNumbers++)
-      sumOfSquearesOfDeviation += Math.pow(setOfNumbers[indexOfNumbers] - mean, 2);
+    double mean = findMean(setOfNumbers), sumOfSquaresOfDeviation = 0;
+    for (double setOfNumber : setOfNumbers) sumOfSquaresOfDeviation += Math.pow(setOfNumber - mean, 2);
 
-    return Math.sqrt(sumOfSquearesOfDeviation / (setOfNumbers.length - 1));
-
+    return Math.sqrt(sumOfSquaresOfDeviation / (setOfNumbers.length - DEVIATION_STATE.value));
   }
 
   /**
