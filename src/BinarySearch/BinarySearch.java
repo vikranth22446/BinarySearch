@@ -36,16 +36,18 @@ public class BinarySearch {
       else if ((array[0]).equals(target))
         return 0;
       else
-        return -1;//or not in array
-    } else if ((target).compareTo(array[midVal]) > 0) {
-      //this means the value is greater than the array value
-      low = midVal; //Set the low one to the middle value
+        return -1;
+    }
+    else if ((target).compareTo(array[midVal]) > 0) {
+      low = midVal;
       return sort(low, high, array, target);
-    } else if ((target).compareTo(array[midVal]) < 0) {
+    }
+    else if ((target).compareTo(array[midVal]) < 0) {
       high = midVal;
       return sort(low, high, array, target);
 
-    } else
+    }
+    else
       return midVal; //the value is equal
   }
 }
