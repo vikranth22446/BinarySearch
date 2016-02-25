@@ -1,4 +1,4 @@
-package src.standarddeviation;
+package standarddeviation;
 
 import javax.swing.*;
 import java.awt.*;

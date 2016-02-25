@@ -1,4 +1,4 @@
-package src.binarysearch;
+package binarysearch;
 
 /**
  * This is a binary Search Method
