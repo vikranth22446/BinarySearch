@@ -7,6 +7,10 @@
 	{
 		text-align:center;
 	}
+	#leftide
+	{
+		text-align: left;
+	}
 	#body
 		{
 		background-image:url(CookiePhoto.jpg);
