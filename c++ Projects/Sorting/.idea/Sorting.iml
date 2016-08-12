@@ -5,7 +5,9 @@
       <sourceFolder url="file://$MODULE_DIR$/bubbleSort.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/selectionSort.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/binarySearch.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/print.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/quickSort.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/insertionSort.cpp" isTestSource="false" />
     </content>
